@@ -1,0 +1,76 @@
+<mxfile host="app.diagrams.net" modified="2024-03-13T00:24:39.855Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="oSWcxbnCFQ4TpYC1dA_J" version="24.0.5" type="device">
+  <diagram name="Página-1" id="qmP7konkbz52M3IDTlNC">
+    <mxGraphModel dx="880" dy="426" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="30" width="690" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-22" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="601" y="40" width="136" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-21" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="40" width="120" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-20" value="" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="40" width="120" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-2" value="FUENTE" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="154" as="sourcePoint" />
+            <mxPoint x="330" y="154" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-3" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/SQL_Server.svg;" vertex="1" parent="1">
+          <mxGeometry x="107" y="120" width="68" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-4" value="BD_NORTE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="85" y="90" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-5" value="STAGING" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="154" as="sourcePoint" />
+            <mxPoint x="600" y="154" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-6" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/SQL_Server.svg;" vertex="1" parent="1">
+          <mxGeometry x="356" y="120" width="68" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-7" value="STG_NORTE" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="340" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-10" value="E=Extraccion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="210" y="128" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-11" value="T=transformacion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="325" y="188" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-12" value="" style="image;aspect=fixed;html=1;points=[];align=center;fontSize=12;image=img/lib/azure2/databases/SQL_Server.svg;" vertex="1" parent="1">
+          <mxGeometry x="640" y="120" width="68" height="68" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-13" value="DM_NORTE" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="601" y="40" width="136" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-14" value="DataMart_norte" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="614" y="80" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-15" value="L=Carga(load)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="619" y="188" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-18" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/visual_studio-128.png" vertex="1" parent="1">
+          <mxGeometry x="220" y="168" width="70" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="k89Fci6vOlyzw_h8Ky1j-19" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/visual_studio-128.png" vertex="1" parent="1">
+          <mxGeometry x="500" y="168" width="70" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
