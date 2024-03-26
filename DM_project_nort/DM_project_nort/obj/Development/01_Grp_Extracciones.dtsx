@@ -12,8 +12,8 @@
   DTS:ObjectName="01_Grp_Extracciones"
   DTS:PackageType="5"
   DTS:ProtectionLevel="0"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{E6FEA292-FDC7-495B-8EFC-071A3C061076}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{256A1CAB-11A4-4D7D-B45C-8F504DB26F99}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -46,6 +46,74 @@
           </DTS:ObjectData>
         </DTS:Executable>
         <DTS:Executable
+          DTS:refId="Package\Extracciones\PCK_Ex_Clientes"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{753F0A81-E5D0-4B31-B47A-18A0449CEBA8}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PCK_Ex_Clientes"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ex_Clientes.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extracciones\PCK_Ex_Despachadores"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{3CD985EE-941E-4AF8-BC7C-F8710D790B23}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PCK_Ex_Despachadores"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ex_Despachadores.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extracciones\PCK_Ex_Empleados"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{FC24291E-52A8-4020-964B-9418F052E827}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PCK_Ex_Empleados"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ex_Empleados.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Extracciones\PCK_Ex_Pedidos"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{280A5BF2-4123-43D5-9EBB-C024F1DDDD7B}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="PCK_Ex_Pedidos"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Ex_Pedidos.dtsx</PackageName>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
           DTS:refId="Package\Extracciones\PCK_Ex_Productos"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Execute Package Task"
@@ -72,6 +140,38 @@
           DTS:LogicalAnd="True"
           DTS:ObjectName="Restricción"
           DTS:To="Package\Extracciones\PCK_Ex_Productos" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extracciones.PrecedenceConstraints[Restricción 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{D6B64A6B-4154-45F3-9C70-A2A7A13220F9}"
+          DTS:From="Package\Extracciones\PCK_Ex_Productos"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 1"
+          DTS:To="Package\Extracciones\PCK_Ex_Clientes" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extracciones.PrecedenceConstraints[Restricción 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{56ABBC56-A624-41AB-8525-A1184F2698B4}"
+          DTS:From="Package\Extracciones\PCK_Ex_Clientes"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 2"
+          DTS:To="Package\Extracciones\PCK_Ex_Empleados" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extracciones.PrecedenceConstraints[Restricción 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{EF4D0CDA-0EC5-4673-A519-82FA491B4C66}"
+          DTS:From="Package\Extracciones\PCK_Ex_Empleados"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 3"
+          DTS:To="Package\Extracciones\PCK_Ex_Despachadores" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Extracciones.PrecedenceConstraints[Restricción 4]"
+          DTS:CreationName=""
+          DTS:DTSID="{6C75EBAC-9731-44DA-8665-E7B762CAA9BE}"
+          DTS:From="Package\Extracciones\PCK_Ex_Despachadores"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Restricción 4"
+          DTS:To="Package\Extracciones\PCK_Ex_Pedidos" />
       </DTS:PrecedenceConstraints>
     </DTS:Executable>
   </DTS:Executables>
@@ -86,29 +186,181 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
           Id="Package\Extracciones\PCK_Ex_Categorias"
-          TopLeft="28.25,7" />
+          TopLeft="35.1666666666667,7" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Extracciones\PCK_Ex_Clientes"
+          TopLeft="41.6666666666667,129" />
         <NodeLayout
           Size="167,42"
           Id="Package\Extracciones\PCK_Ex_Productos"
-          TopLeft="29.75,89" />
+          TopLeft="36.6666666666667,66" />
         <EdgeLayout
           Id="Package\Extracciones.PrecedenceConstraints[Restricción]"
-          TopLeft="113.25,49">
+          TopLeft="35.1666666666667,28">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40"
+              EndConnector="1.5,53.3333333333333"
               Start="0,0"
-              End="0,32.5">
+              End="-6,53.3333333333333">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.5" />
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,49.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,49.3333333333333"
+                    Point2="-22.5,53.3333333333333"
+                    Point3="-18.5,53.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-6,53.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Extracciones.PrecedenceConstraints[Restricción 1]"
+          TopLeft="36.6666666666667,92.6666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="5,51.6666666666667"
+              Start="0,0"
+              End="-2.5,51.6666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-18.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-18.5,0"
+                    Point2="-22.5,0"
+                    Point3="-22.5,4" />
+                  <mssgle:LineSegment
+                    End="-22.5,47.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-22.5,47.6666666666667"
+                    Point2="-22.5,51.6666666666667"
+                    Point3="-18.5,51.6666666666667" />
+                  <mssgle:LineSegment
+                    End="-2.5,51.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Extracciones\PCK_Ex_Empleados"
+          TopLeft="34.6666666666667,191" />
+        <EdgeLayout
+          Id="Package\Extracciones.PrecedenceConstraints[Restricción 2]"
+          TopLeft="41.6666666666667,155.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-7,50.6666666666667"
+              Start="0,0"
+              End="-14.5,50.6666666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-25.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-25.5,0"
+                    Point2="-29.5,0"
+                    Point3="-29.5,4" />
+                  <mssgle:LineSegment
+                    End="-29.5,46.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29.5,46.6666666666667"
+                    Point2="-29.5,50.6666666666667"
+                    Point3="-25.5,50.6666666666667" />
+                  <mssgle:LineSegment
+                    End="-14.5,50.6666666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Extracciones\PCK_Ex_Despachadores"
+          TopLeft="24.1666666666667,248" />
+        <EdgeLayout
+          Id="Package\Extracciones.PrecedenceConstraints[Restricción 3]"
+          TopLeft="34.6666666666667,217.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,51.3333333333333"
+              Start="0,0"
+              End="-18,51.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-29,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-29,0"
+                    Point2="-33,0"
+                    Point3="-33,4" />
+                  <mssgle:LineSegment
+                    End="-33,47.3333333333333" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33,47.3333333333333"
+                    Point2="-33,51.3333333333333"
+                    Point3="-29,51.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-18,51.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Extracciones\PCK_Ex_Pedidos"
+          TopLeft="41.6666666666667,314" />
+        <EdgeLayout
+          Id="Package\Extracciones.PrecedenceConstraints[Restricción 4]"
+          TopLeft="120.166666666667,290">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -120,8 +372,8 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205,196"
-          Size="205,239"
+          PanelSize="236,411"
+          Size="236,454"
           Id="Package\Extracciones"
           TopLeft="235,86" />
       </GraphLayout>

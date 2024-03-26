@@ -33,6 +33,10 @@
           <SSIS:Package SSIS:Name="Ex_Categorias.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="01_Grp_Extracciones.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Ex_Clientes.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Ex_Empleados.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Ex_Despachadores.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Ex_Pedidos.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Ex_Pedidos_detalle.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="conex_norte.conmgr" />
@@ -378,10 +382,10 @@
                 <SSIS:Property SSIS:Name="Name">01_Grp_Extracciones</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">5</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">10</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{E6FEA292-FDC7-495B-8EFC-071A3C061076}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{256A1CAB-11A4-4D7D-B45C-8F504DB26F99}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -399,6 +403,74 @@
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionGUID">{7C3B0C5E-8323-4CF8-8911-A4A08393A110}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Ex_Empleados.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{BDC8B378-D8F8-42AD-BD79-EFAAF2669F7F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Ex_Empleados</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{0FB5CE12-54BC-4C41-8093-E087B5B73785}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Ex_Despachadores.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{86EAE88A-3A9A-43E3-8803-10CCC5514E57}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Ex_Despachadores</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{D7B0020D-7683-4A83-897D-113E86577474}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Ex_Pedidos.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{1A23D7C9-0ABD-4E84-BC0E-007AB0A6D41E}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Ex_Pedidos</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2949AD98-A506-4F01-B045-8E80163B17B5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">0</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Ex_Pedidos_detalle.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{A90C0A09-3FEF-49E4-B252-127003E30626}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Ex_Pedidos_detalle</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">9</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{8BE8D548-ED64-4D2A-AFB9-3D587E616430}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

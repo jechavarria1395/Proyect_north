@@ -1,0 +1,775 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/25/2024 3:04:52 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JHONATAN-LAPTOP"
+  DTS:CreatorName="JHONATAN-LAPTOP\Jhonatan E"
+  DTS:DTSID="{1A23D7C9-0ABD-4E84-BC0E-007AB0A6D41E}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Ex_Pedidos"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{2949AD98-A506-4F01-B045-8E80163B17B5}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{47B52FB8-A3C2-456D-9D4C-0B0432A8633F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Audit"
+              componentClassID="Microsoft.Lineage"
+              contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+              name="Audit">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Audit.Inputs[Audit Input 1]"
+                  name="Audit Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Audit.Outputs[Audit Output 1]"
+                  exclusionGroup="1"
+                  name="Audit Output 1"
+                  synchronousInputId="Package\Data Flow Task\Audit.Inputs[Audit Input 1]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Audit.Outputs[Audit Output 1].Columns[BI_Control_extraccion]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task\Audit.Outputs[Audit Output 1].Columns[BI_Control_extraccion]"
+                      name="BI_Control_extraccion">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">4</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLEDB_Pedidos"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLEDB_Pedidos"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Pedidos]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLEDB_Pedidos.Connections[OleDbConnection]"
+                  connectionManagerID="{8B7792A4-1E70-4898-80B5-089429BFC8C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[conex_norte]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdPedido]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdPedido]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdPedido]"
+                      name="IdPedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                      length="5"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdCliente]"
+                      name="IdCliente"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdEmpleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdEmpleado]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdEmpleado]"
+                      name="IdEmpleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[FPedido]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[FPedido]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[FPedido]"
+                      name="FPedido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdDespachador]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdDespachador]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdDespachador]"
+                      name="IdDespachador"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[Flete]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[Flete]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[Flete]"
+                      name="Flete"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaPais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaPais]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaPais]"
+                      name="EntregaPais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaRegion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaRegion]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaRegion]"
+                      name="EntregaRegion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaCiudad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaCiudad]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaCiudad]"
+                      name="EntregaCiudad"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdPedido]"
+                      dataType="i4"
+                      name="IdPedido" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="5"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdEmpleado]"
+                      dataType="i4"
+                      name="IdEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[FPedido]"
+                      dataType="dbTimeStamp"
+                      name="FPedido" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[FRequerida]"
+                      dataType="dbTimeStamp"
+                      name="FRequerida" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[FDespacho]"
+                      dataType="dbTimeStamp"
+                      name="FDespacho" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[IdDespachador]"
+                      dataType="i4"
+                      name="IdDespachador" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[Flete]"
+                      dataType="cy"
+                      name="Flete" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaNombre]"
+                      dataType="wstr"
+                      length="40"
+                      name="EntregaNombre" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaDireccion]"
+                      dataType="wstr"
+                      length="60"
+                      name="EntregaDireccion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaCiudad]"
+                      dataType="wstr"
+                      length="15"
+                      name="EntregaCiudad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaRegion]"
+                      dataType="wstr"
+                      length="15"
+                      name="EntregaRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].ExternalColumns[EntregaPais]"
+                      dataType="wstr"
+                      length="15"
+                      name="EntregaPais" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdPedido]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdPedido]"
+                      name="IdPedido" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdCliente]"
+                      name="IdCliente" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdEmpleado]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdEmpleado]"
+                      name="IdEmpleado" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[FPedido]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[FPedido]"
+                      name="FPedido" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdDespachador]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[IdDespachador]"
+                      name="IdDespachador" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[Flete]"
+                      dataType="cy"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[Flete]"
+                      name="Flete" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[EntregaPais]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[EntregaPais]"
+                      name="EntregaPais" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[EntregaRegion]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[EntregaRegion]"
+                      name="EntregaRegion" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[EntregaCiudad]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Error Output].Columns[EntregaCiudad]"
+                      name="EntregaCiudad" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\stg_Pedidos"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stg_Pedidos"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg_Pedidos]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\stg_Pedidos.Connections[OleDbConnection]"
+                  connectionManagerID="{F5CBAEEB-3384-49D9-B0BA-F2C780D34735}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[conex_STG_NORTE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[IdPedido]"
+                      cachedDataType="i4"
+                      cachedName="IdPedido"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdPedido]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdPedido]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[IdCliente]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="IdCliente"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdCliente]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[IdEmpleado]"
+                      cachedDataType="i4"
+                      cachedName="IdEmpleado"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdEmpleado]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdEmpleado]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[FPedido]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="FPedido"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[FPedido]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[FPedido]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[IdDespachador]"
+                      cachedDataType="i4"
+                      cachedName="IdDespachador"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdDespachador]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[IdDespachador]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[Flete]"
+                      cachedDataType="cy"
+                      cachedName="Flete"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[Flete]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[Flete]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[EntregaPais]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="EntregaPais"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[EntregaPais]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaPais]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[EntregaRegion]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="EntregaRegion"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[EntregaRegion]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaRegion]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[EntregaCiudad]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="EntregaCiudad"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[EntregaCiudad]"
+                      lineageId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output].Columns[EntregaCiudad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].Columns[BI_Control_extraccion]"
+                      cachedDataType="date"
+                      cachedName="BI_Control_extraccion"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[BI_Control_extraccion]"
+                      lineageId="Package\Data Flow Task\Audit.Outputs[Audit Output 1].Columns[BI_Control_extraccion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdPedido]"
+                      dataType="i4"
+                      name="IdPedido" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdCliente]"
+                      dataType="wstr"
+                      length="5"
+                      name="IdCliente" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdEmpleado]"
+                      dataType="i4"
+                      name="IdEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[FPedido]"
+                      dataType="dbTimeStamp"
+                      name="FPedido" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[IdDespachador]"
+                      dataType="i4"
+                      name="IdDespachador" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[Flete]"
+                      dataType="cy"
+                      name="Flete" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[EntregaPais]"
+                      dataType="wstr"
+                      length="15"
+                      name="EntregaPais" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[EntregaRegion]"
+                      dataType="wstr"
+                      length="15"
+                      name="EntregaRegion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[EntregaCiudad]"
+                      dataType="wstr"
+                      length="15"
+                      name="EntregaCiudad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input].ExternalColumns[BI_Control_extraccion]"
+                      dataType="dbTimeStamp"
+                      name="BI_Control_extraccion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\stg_Pedidos.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\stg_Pedidos.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\stg_Pedidos.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\stg_Pedidos.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Audit Output 1]"
+              endId="Package\Data Flow Task\stg_Pedidos.Inputs[OLE DB Destination Input]"
+              name="Audit Output 1"
+              startId="Package\Data Flow Task\Audit.Outputs[Audit Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Audit.Inputs[Audit Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLEDB_Pedidos.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_Pedidos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{68AEC665-34C5-4ECF-83B3-626E504CD9B0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_Pedidos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F5CBAEEB-3384-49D9-B0BA-F2C780D34735}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.stg_Pedidos" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{23ED1289-AB5A-498C-997E-0A472C0B48DE}"
+      DTS:From="Package\Truncate_Pedidos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="121,129" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Truncate_Pedidos"
+          TopLeft="97,38" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="178.5,80">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,49"
+              Start="0,0"
+              End="18,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="14,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,24.5"
+                    Point2="18,24.5"
+                    Point3="18,28.5" />
+                  <mssgle:LineSegment
+                    End="18,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="Truncate sirve para reiniciar la tabla"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="215,40"
+          Id="5962937c-de5a-4184-a761-d113b77416f3"
+          TopLeft="327,29" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Data Flow Task\Audit"
+          TopLeft="152.666666666667,129" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Data Flow Task\OLEDB_Pedidos"
+          TopLeft="135,57" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="207.833333333333,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="135,42"
+          Id="Package\Data Flow Task\stg_Pedidos"
+          TopLeft="127,211" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Audit Output 1]"
+          TopLeft="204.166666666667,171">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.666666666667,40"
+              Start="0,0"
+              End="-9.666666666667,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="-4,20" />
+                  <mssgle:LineSegment
+                    End="-5.666666666667,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.666666666667,20"
+                    Point2="-9.666666666667,20"
+                    Point3="-9.666666666667,24" />
+                  <mssgle:LineSegment
+                    End="-9.666666666667,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLEDB_Pedidos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\stg_Pedidos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

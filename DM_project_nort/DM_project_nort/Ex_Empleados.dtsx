@@ -1,0 +1,813 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="3/25/2024 3:04:52 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="JHONATAN-LAPTOP"
+  DTS:CreatorName="JHONATAN-LAPTOP\Jhonatan E"
+  DTS:DTSID="{BDC8B378-D8F8-42AD-BD79-EFAAF2669F7F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.180"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Ex_Empleados"
+  DTS:PackageType="5"
+  DTS:ProtectionLevel="0"
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{0FB5CE12-54BC-4C41-8093-E087B5B73785}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B6D40814-C3E7-4EDB-8F1F-E3127055ADBA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Audit"
+              componentClassID="Microsoft.Lineage"
+              contactInfo="Audit;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Includes data about the environment in which the package runs. Map system variables to new output columns. For example, add the name of the computer and operator to the data flow."
+              name="Audit">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Audit.Inputs[Audit Input 1]"
+                  name="Audit Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Audit.Outputs[Audit Output 1]"
+                  exclusionGroup="1"
+                  name="Audit Output 1"
+                  synchronousInputId="Package\Data Flow Task\Audit.Inputs[Audit Input 1]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Audit.Outputs[Audit Output 1].Columns[BI_Control_extraccion]"
+                      dataType="date"
+                      lineageId="Package\Data Flow Task\Audit.Outputs[Audit Output 1].Columns[BI_Control_extraccion]"
+                      name="BI_Control_extraccion">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies which audit item this column produces."
+                          name="LineageItemSelected"
+                          typeConverter="LineageItemSelected">4</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\OLEDB_Empleados"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLEDB_Empleados"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Empleados]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLEDB_Empleados.Connections[OleDbConnection]"
+                  connectionManagerID="{8B7792A4-1E70-4898-80B5-089429BFC8C2}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[conex_norte]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[IdEmpleado]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[IdEmpleado]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[IdEmpleado]"
+                      name="IdEmpleado"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Apellidos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Apellidos]"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Apellidos]"
+                      name="Apellidos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Nombres]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Nombres]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Nombres]"
+                      name="Nombres"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Direccion]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Direccion]"
+                      length="60"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Direccion]"
+                      name="Direccion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Ciudad]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Ciudad]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Ciudad]"
+                      name="Ciudad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Pais]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Pais]"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Pais]"
+                      name="Pais"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[TelCasa]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[TelCasa]"
+                      length="13"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[TelCasa]"
+                      name="TelCasa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Reporta_A]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Reporta_A]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Reporta_A]"
+                      name="Reporta_A"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[IdEmpleado]"
+                      dataType="i4"
+                      name="IdEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="20"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Nombres]"
+                      dataType="wstr"
+                      length="10"
+                      name="Nombres" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Cargo]"
+                      dataType="wstr"
+                      length="30"
+                      name="Cargo" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[TituloCortesia]"
+                      dataType="wstr"
+                      length="25"
+                      name="TituloCortesia" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[FCumpleanos]"
+                      dataType="dbTimeStamp"
+                      name="FCumpleanos" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[FContrato]"
+                      dataType="dbTimeStamp"
+                      name="FContrato" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Direccion]"
+                      dataType="wstr"
+                      length="60"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="15"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Pais]"
+                      dataType="wstr"
+                      length="15"
+                      name="Pais" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[TelCasa]"
+                      dataType="wstr"
+                      length="13"
+                      name="TelCasa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Extension]"
+                      dataType="wstr"
+                      length="4"
+                      name="Extension" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Foto]"
+                      dataType="image"
+                      name="Foto" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Notas]"
+                      dataType="nText"
+                      name="Notas" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[Reporta_A]"
+                      dataType="i4"
+                      name="Reporta_A" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].ExternalColumns[RutaFoto]"
+                      dataType="wstr"
+                      length="255"
+                      name="RutaFoto" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[IdEmpleado]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[IdEmpleado]"
+                      name="IdEmpleado" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Apellidos]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Apellidos]"
+                      name="Apellidos" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Nombres]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Nombres]"
+                      name="Nombres" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Direccion]"
+                      dataType="wstr"
+                      length="60"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Direccion]"
+                      name="Direccion" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Ciudad]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Ciudad]"
+                      name="Ciudad" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Pais]"
+                      dataType="wstr"
+                      length="15"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Pais]"
+                      name="Pais" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[TelCasa]"
+                      dataType="wstr"
+                      length="13"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[TelCasa]"
+                      name="TelCasa" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Reporta_A]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Error Output].Columns[Reporta_A]"
+                      name="Reporta_A" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\stg_empleados"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="stg_empleados"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[stg_empleados]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\stg_empleados.Connections[OleDbConnection]"
+                  connectionManagerID="{F5CBAEEB-3384-49D9-B0BA-F2C780D34735}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[conex_STG_NORTE]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[IdEmpleado]"
+                      cachedDataType="i4"
+                      cachedName="IdEmpleado"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[IdEmpleado]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[IdEmpleado]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="Apellidos"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Apellidos]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Nombres]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Nombres"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Nombres]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Nombres]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Direccion]"
+                      cachedDataType="wstr"
+                      cachedLength="60"
+                      cachedName="Direccion"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Direccion]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Direccion]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Ciudad]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Ciudad"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Ciudad]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Pais]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Pais"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Pais]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[TelCasa]"
+                      cachedDataType="wstr"
+                      cachedLength="13"
+                      cachedName="TelCasa"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[TelCasa]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[TelCasa]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[Reporta_A]"
+                      cachedDataType="i4"
+                      cachedName="Reporta_A"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Reporta_A]"
+                      lineageId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output].Columns[Reporta_A]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].Columns[BI_Control_extraccion]"
+                      cachedDataType="date"
+                      cachedName="BI_Control_extraccion"
+                      externalMetadataColumnId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[BI_Control_extraccion]"
+                      lineageId="Package\Data Flow Task\Audit.Outputs[Audit Output 1].Columns[BI_Control_extraccion]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[IdEmpleado]"
+                      dataType="i4"
+                      name="IdEmpleado" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="20"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Nombres]"
+                      dataType="wstr"
+                      length="10"
+                      name="Nombres" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Direccion]"
+                      dataType="wstr"
+                      length="60"
+                      name="Direccion" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Ciudad]"
+                      dataType="wstr"
+                      length="15"
+                      name="Ciudad" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="15"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Pais]"
+                      dataType="wstr"
+                      length="15"
+                      name="Pais" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[TelCasa]"
+                      dataType="wstr"
+                      length="13"
+                      name="TelCasa" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[Reporta_A]"
+                      dataType="i4"
+                      name="Reporta_A" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input].ExternalColumns[BI_Control_extraccion]"
+                      dataType="dbTimeStamp"
+                      name="BI_Control_extraccion" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\stg_empleados.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\stg_empleados.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Audit Output 1]"
+              endId="Package\Data Flow Task\stg_empleados.Inputs[OLE DB Destination Input]"
+              name="Audit Output 1"
+              startId="Package\Data Flow Task\Audit.Outputs[Audit Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Audit.Inputs[Audit Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\OLEDB_Empleados.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate_Empleados"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{C3154157-30D3-4E20-90C8-AB11F05FFB4D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate_Empleados"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F5CBAEEB-3384-49D9-B0BA-F2C780D34735}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE dbo.stg_empleados" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Restricción]"
+      DTS:CreationName=""
+      DTS:DTSID="{AE4E42E4-DE1E-4786-80F2-0730FE82CEBE}"
+      DTS:From="Package\Truncate_Empleados"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Restricción"
+      DTS:To="Package\Data Flow Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="151,42"
+          Id="Package\Data Flow Task"
+          TopLeft="9,132" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Truncate_Empleados"
+          TopLeft="109,39" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción]"
+          TopLeft="193,81">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-108.5,51"
+              Start="0,0"
+              End="-108.5,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.5"
+                    Point2="0,25.5"
+                    Point3="-4,25.5" />
+                  <mssgle:LineSegment
+                    End="-104.5,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-104.5,25.5"
+                    Point2="-108.5,25.5"
+                    Point3="-108.5,29.5" />
+                  <mssgle:LineSegment
+                    End="-108.5,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Data Flow Task\Audit"
+          TopLeft="33.5,114" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Data Flow Task\OLEDB_Empleados"
+          TopLeft="38,47" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="122,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-37,25"
+              Start="0,0"
+              End="-37,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.5"
+                    Point2="0,12.5"
+                    Point3="-4,12.5" />
+                  <mssgle:LineSegment
+                    End="-33,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-33,12.5"
+                    Point2="-37,12.5"
+                    Point3="-37,16.5" />
+                  <mssgle:LineSegment
+                    End="-37,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Data Flow Task\stg_empleados"
+          TopLeft="30,190" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Audit Output 1]"
+          TopLeft="85,156">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="20,34"
+              Start="0,0"
+              End="20,26.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13"
+                    Point2="0,17"
+                    Point3="4,17" />
+                  <mssgle:LineSegment
+                    End="16,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="16,17"
+                    Point2="20,17"
+                    Point3="20,21" />
+                  <mssgle:LineSegment
+                    End="20,26.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLEDB_Empleados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\stg_empleados">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

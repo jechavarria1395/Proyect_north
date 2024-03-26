@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>DM_project_nort</Name>
-    <LastWriteTime>2024-03-25T21:11:04.5383107Z</LastWriteTime>
+    <LastWriteTime>2024-03-26T02:25:41.6752749Z</LastWriteTime>
     <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,12 +18,32 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>01_Grp_Extracciones.dtsx</Name>
-      <LastWriteTime>2024-03-25T21:11:04.5066363Z</LastWriteTime>
+      <LastWriteTime>2024-03-26T02:23:02.7031454Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Ex_Clientes.dtsx</Name>
       <LastWriteTime>2024-03-25T21:11:04.4765345Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Ex_Empleados.dtsx</Name>
+      <LastWriteTime>2024-03-26T02:08:14.4103828Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Ex_Despachadores.dtsx</Name>
+      <LastWriteTime>2024-03-26T02:13:28.974907Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Ex_Pedidos.dtsx</Name>
+      <LastWriteTime>2024-03-26T02:22:49.1267277Z</LastWriteTime>
+      <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Ex_Pedidos_detalle.dtsx</Name>
+      <LastWriteTime>2024-03-26T02:25:41.6262796Z</LastWriteTime>
       <LastKnownProtectionLevel>DontSaveSensitive</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
